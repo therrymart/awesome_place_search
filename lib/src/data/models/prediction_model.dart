@@ -43,4 +43,17 @@ class PredictionModel extends PredictionEntity {
             ? []
             : List<String>.from(json["types"]!.map((x) => x)),
       );
+
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      'description': description,
+      'matchedSubstrings': matchedSubstrings,
+      'placeId': placeId,
+      'reference': reference,
+      'structuredFormatting': structuredFormatting,
+      'terms': terms,
+      'types': types
+    };
+  }
+
 }
