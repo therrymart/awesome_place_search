@@ -63,7 +63,7 @@ class CustomTextField extends StatelessWidget {
             border: OutlineInputBorder(
                 borderSide: BorderSide(
                     width: 1,
-                    color: const Color(0xFF4D5454).withOpacity(0.5)),
+                    color: const Color(0xFF4D5454).withOpacity(0.6)),
                 borderRadius:const BorderRadius.all(Radius.circular(12))),
             suffixIcon: controller.text.isNotEmpty
                 ? IconButton(
