@@ -27,8 +27,8 @@ class AwesomePlaceSearch {
   AwesomePlaceSearch({
     required this.context,
     required this.key,
-    this.errorText = "something went wrong",
-    this.hint = "where are we going?",
+    this.errorText = "Agh, something went wrong",
+    this.hint = "Search for rental, location...",
     required this.onTap,
     this.onEmpty,
     this.onError,
@@ -61,10 +61,10 @@ class AwesomePlaceSearch {
               height: height * .9,
               width: double.infinity,
               decoration: const BoxDecoration(
-                color: Colors.white,
+                color: Color(0xFFFAFAFA),
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(15),
-                  topRight: Radius.circular(15),
+                  topLeft: Radius.circular(20.0),
+                  topRight: Radius.circular(20.0),
                 ),
               ),
               child: _bodyModal(height: height),
@@ -101,16 +101,7 @@ class AwesomePlaceSearch {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              const SizedBox(height: 10),
-              Container(
-                width: 100,
-                height: 10,
-                decoration: BoxDecoration(
-                  color: Colors.grey.withOpacity(.3),
-                  borderRadius: BorderRadius.circular(50),
-                ),
-              ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 40),
               Expanded(
                 child: Stack(
                   children: [

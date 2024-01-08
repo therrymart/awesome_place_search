@@ -17,21 +17,11 @@ class CustomTextField extends StatelessWidget {
     return Container(
       height: 80,
       alignment: Alignment.center,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.white,
-        borderRadius: const BorderRadius.vertical(
-          top: Radius.circular(10),
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(12),
         ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(.3),
-            blurRadius: 10,
-            offset: const Offset(
-              0.0,
-              5.0,
-            ),
-          )
-        ],
       ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -39,11 +29,47 @@ class CustomTextField extends StatelessWidget {
           controller: controller,
           onChanged: onChange,
           decoration: InputDecoration(
+            floatingLabelBehavior: FloatingLabelBehavior.never,
+            // contentPadding: const EdgeInsets.fromLTRB(15,15,5,20),
+            hintStyle: TextStyle(
+                color: const Color(0xFF4D5454).withOpacity(0.7),
+                fontSize: 16),
+            labelStyle: TextStyle(
+                color:  const Color(0xFF4D5454).withOpacity(0.5),
+                fontSize: 14),
+            filled: true,
+            errorMaxLines: 2,
+            hintMaxLines: 2,
+            focusColor: const Color(0xFFFFFFFF),
+            fillColor: const Color(0xFFFFFFFF),
+            focusedBorder: const OutlineInputBorder(
+                borderSide: BorderSide(
+                    width: 1.5, color: Color(0xFF087C7C)),
+                borderRadius: BorderRadius.all(Radius.circular(12))),
+            enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                    width: 0.5,
+                    color: const Color(0xFF4D5454).withOpacity(0.1)),
+                borderRadius: const BorderRadius.all(Radius.circular(12))),
+            errorBorder: const OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(12)),
+              borderSide: BorderSide(
+                color: Color.fromARGB(255, 166, 4, 4),
+              ),
+            ),
+            errorStyle: const TextStyle(
+              height: 1.0,
+            ),
+            border: OutlineInputBorder(
+                borderSide: BorderSide(
+                    width: 1,
+                    color: const Color(0xFF4D5454).withOpacity(0.1)),
+                borderRadius:const BorderRadius.all(Radius.circular(12))),
             suffixIcon: controller.text.isNotEmpty
                 ? IconButton(
                     icon: const Icon(
                       Icons.cancel,
-                      color: Colors.grey,
+                      color: Color(0xFF087C7C),
                     ),
                     onPressed: () {
                       controller.text = "";
@@ -52,9 +78,8 @@ class CustomTextField extends StatelessWidget {
                 : null,
             prefixIcon: const Icon(
               Icons.search,
-              color: Colors.grey,
+              color: Color(0xFF087C7C),
             ),
-            border: InputBorder.none,
             hintText: hint,
           ),
         ),
