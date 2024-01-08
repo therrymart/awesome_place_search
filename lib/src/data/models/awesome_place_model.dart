@@ -10,6 +10,7 @@ AwesomePlacesSearchModel awesomePlacesModelFromJson(String str) =>
 
 class AwesomePlacesSearchModel extends AwesomePlacesSearchEntity {
   final List<PredictionModel>? predictionsModel;
+
   AwesomePlacesSearchModel({
     this.predictionsModel,
     String? status,
@@ -36,6 +37,22 @@ class MatchedSubstring extends MatchedSubstringEntity {
         length: json["length"],
         offset: json["offset"],
       );
+
+
+  Map<String, dynamic> toMap() {
+    return {
+      'length': this.length,
+      'offset': this.offset,
+    };
+  }
+  @override
+  String toString() {
+    return 'MatchedSubstring{' +
+        ' length: $length,' +
+        ' offset: $offset,' +
+        '}';
+  }
+
 }
 
 class StructuredFormatting extends StructuredFormattingEntity {
@@ -48,6 +65,21 @@ class StructuredFormatting extends StructuredFormattingEntity {
             mainTextMatchedSubstrings: mainTextMatchedSubstrings,
             secondaryText: secondaryText);
 
+  @override
+  String toString() {
+    return 'StructuredFormatting{' +
+        ' mainTex: $mainText,' +
+        ' mainTextMatchedSubstrings: $mainTextMatchedSubstrings,' +
+        ' secondaryText: $secondaryText,' +
+        '}';
+  }
+  Map<String, dynamic> toMap() {
+    return {
+      'mainTex': this.mainText,
+      'mainTextMatchedSubstrings': this.mainTextMatchedSubstrings,
+      'secondaryText': this.secondaryText,
+    };
+  }
   factory StructuredFormatting.fromJson(Map<String, dynamic> json) =>
       StructuredFormatting(
         mainText: json["main_text"],
@@ -69,8 +101,26 @@ class Term extends TermEntity {
         offset: json["offset"],
         value: json["value"],
       );
+
+
+  Map<String, dynamic> toMap() {
+    return {
+      'offset': this.offset,
+      'value': this.value,
+    };
+  }
+
+  @override
+  String toString() {
+    return 'Term{' +
+        ' offset: $offset,' +
+        ' value: $value,' +
+        '}';
+  }
+
 }
 
 class ParamSearchModel extends ParamSearchEntity {
-  ParamSearchModel({required String value, required String key}) : super(key: key, value: value);
+  ParamSearchModel({required String value, required String key})
+      : super(key: key, value: value);
 }
